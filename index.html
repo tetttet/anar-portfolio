@@ -668,7 +668,11 @@
           </div>
           <div class="about-image slide-in-right">
             <div class="image-placeholder">
-             <img src="anar.jpeg" alt="Anar Ramazanov" style="border-radius: 50%; width: 180px; height: 180px;" />
+              <img
+                src="anar_photo.jpeg"
+                alt="Anar Ramazanov"
+                style="border-radius: 50%; width: 180px; height: 180px"
+              />
             </div>
             <p class="portfolio-message">
               For my full portfolio and additional photos, please contact me
@@ -796,6 +800,29 @@
     <script>
       // Set current year
       document.getElementById("year").textContent = new Date().getFullYear();
+
+      // change image by pressing img
+      const imagePlaceholder = document.querySelector(".image-placeholder img");
+
+      const arr = [
+        "anar_photo.jpeg",
+        "anar_photo.jpeg",
+        "anar_photo.jpeg",
+        "anar_photo.jpeg",
+        "anar_photo.jpeg",
+      ];
+      // reverse every time you click from 0 to 1
+      let isOriginal = true;
+      if (imagePlaceholder) {
+        imagePlaceholder.addEventListener("click", () => {
+          if (isOriginal) {
+            imagePlaceholder.src = arr[Math.floor(Math.random() * arr.length)];
+          } else {
+            imagePlaceholder.src = "anar_photo.jpeg";
+          }
+          isOriginal = !isOriginal;
+        });
+      }
 
       // Simple animation on scroll
       document.addEventListener("DOMContentLoaded", function () {
